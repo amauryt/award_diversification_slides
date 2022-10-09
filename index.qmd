@@ -1,0 +1,564 @@
+---
+title: "Assessing Peer Award Diversification on Reddit"
+author: "Amaury Trujillo"
+institute: "IIT-CNR"
+date: "11 October 2022"
+format: 
+  revealjs:
+    theme: [dark, style/custom.scss]
+---
+
+# Introduction
+
+```{r setup}
+library(data.table)
+library(ggplot2)
+library(ggiraph)
+library(ggforce)
+library(ggdark)
+library(reactable)
+library(glue)
+
+format_number <- scales:::label_number(big.mark = ",")
+format_percent <- scales::label_percent(accuracy = 1, big.mark = ",")
+post_colors <- c(submission = "#8da0cb", comment = "#66c2a5")
+gilding_color <- "violet"
+non_gilding_color <- "steelblue"
+
+agg_row_css_class_js <- JS(" function(rowInfo) { if (rowInfo.aggregated) return rowInfo.values.kind; }")
+
+options(reactable.theme = reactableTheme(
+  color = "hsl(233, 9%, 87%)",
+  backgroundColor = "hsl(233, 9%, 1%)",
+  borderColor = "hsl(233, 9%, 22%)",
+  stripedColor = "hsl(233, 12%, 22%)",
+  highlightColor = "hsl(233, 12%, 24%)",
+  inputStyle = list(backgroundColor = "hsl(233, 9%, 25%)"),
+  selectStyle = list(backgroundColor = "hsl(233, 9%, 25%)"),
+  pageButtonHoverStyle = list(backgroundColor = "hsl(233, 9%, 25%)"),
+  pageButtonActiveStyle = list(backgroundColor = "hsl(233, 9%, 28%)"),
+  style = list(
+      fontSize = "0.5em"
+    ),
+))
+```
+
+## Content Structure in Reddit
+
+::::: {.columns}
+
+:::: {.column width="35%" .reddit-content-structure}
+![content hierarchy](imgs/content_structure.svg)
+::::
+
+
+:::: {.column width="65%"}
+::: {.fragment .reddit-content-structure}
+[Subreddit]{.subreddit}: community of users and content around a shared interest
+:::
+::: {.fragment .reddit-content-structure}
+[Submission]{.submission}: post on a subreddit with a title and text body or link (website or embedded multimedia)
+:::
+::: {.fragment .reddit-content-structure}
+[Comment]{.comment}: post on a submission or another comment in the form of plain or rich text
+:::
+::::
+:::::
+
+## Monetization on Reddit {background-image="https://www.redditstatic.com/desktop2x/img/gold/premium-marketing/premiumHero.jpg" backgroun-position="right"}
+
+* **Reddit Ads**
+  - Advertisement model
+  - Promoted submissions
+* **Reddit Premium**
+  - Subscription model
+  - No advertisements
+  - Exclusive features
+* **Reddit Coins**
+
+## Reddit Coins {background-image="https://www.redditstatic.com/desktop2x/img/gold/coins-hero.jpg" backgroun-position="right"}
+
+* Introduced in September of 2018
+* Virtual goods used to award posts
+* Some awards also grant special bonuses
+* Can be obtained via:
+  - Reddit Premium
+  - Direct purchase
+  - A gift  by admins
+  - An award bonus
+
+## Reddit Gildings
+
+Coins could be exchanged for one of three gilding awards
+
+::: {.gildings-row layout-ncol=3}
+
+![<b>Platinum</b><br>Costs 1,800 coins<br>Gives 700 coins](imgs/gid_3.png)
+
+![<b>Gold</b><br>Costs 500 coins<br>Gives 100 coins](imgs/gid_2.png)
+
+![<b>Silver</b><br>Costs 100 coins<br>No perks](imgs/gid_1.png)
+
+:::
+
+
+## Reddit Awards
+
+**Diversification** to hundreds of awards since July of 2019
+
+![](imgs/award_selection_dialog.png){fig-align=center}
+
+## More Than Colorfour Imagery
+
+Many awards are humorous references to Internet slang, memes, or inside jokes.
+
+::: {.gildings-row layout-ncol=3}
+
+![Trollface](imgs/example_awards/Trollface.png)
+
+![hehehe](imgs/example_awards/hehehe.png)
+
+![Defeated](imgs/example_awards/Defeated.png)
+
+:::
+
+## Research Questions {#research-questions}
+
+1. How award diversification changed<br>**awarding levels**?
+2. How **diverse** are the awards given by<br>Reddit users?
+
+# Background
+
+## Paid Appreciation Tokens
+
+::: {.central-statement}
+Recognition symbols of the enjoyment that some content has brought to their giver.
+:::
+
+## Twitch Bits and Cheers
+
+::: {.other-appreciation-tokens}
+![](imgs/twitch_bits.png){fig-align=center}
+:::
+
+* A strong alternative to third-party donation tools
+* A mechanism with which streamers monetize their content
+
+## TikTok Coins and Gifts
+
+::: {.other-appreciation-tokens}
+![](imgs/tiktok_gifts.jpg){fig-align=center .other-appreciation-tokens}
+:::
+
+* A key mechanism in the platform's financial success
+* The main source of revenue for some content creators
+
+## Peculiarities of Reddit Coins and Awards
+
+::: {.incremental}
+- **Content sharing and discussion** (original or by others) are the main focus of posts, and only these receive awards
+- **Content creators/sharers do not monetize awards**, even when some rewards entail coins
+- **Peer relationship** among users, as all can be content creators/sharers/consumers at the same time
+:::
+
+## Literature about Awarding in Reddit
+
+* In most, awards are a mere measure of post success
+* Only a couple of works focus on gilding:
+    - An analysis which found gilding differences among clusters of subreddits[^1]
+    - An experimental study which found that **users increase their activity upon gilding**[^2]
+
+[^1]: Julia Mendelsohn and Lucy Li. _Giving gold: Understanding appreciation in
+reddit communities_. Technical Report. Stanford University, Stanford, CA. (2017).
+[^2]: Gordon B et al. 2021. _How do peer awards motivate creative content? Experimental evidence from Reddit_. Management Science (2021).
+
+
+# Methods
+
+## Data Collection
+
+1. Select **top 50 subreddits** as of Jan 2019
+    - Exclude NSFW and official subreddits
+2. Collect posts before and after diversification
+    - Two six-month datasets:
+        * 2019H1 (**gildings**)
+        * 2020H1 (**awardings**) 
+    - Total of 16M submissions and 203M comments
+
+
+## Measurement of Awarding Levels
+
+::: {.incremental}
+- _**Awards given**_: the count of awards given, regardless of their identity (also called _awardings_)
+- _**Coins spent**_: the sum of distinct award prices multiplied by the respective number of times given
+- _**Awarded posts**_: the number of posts that received at least one awarding
+:::
+
+::: {.fragment}
+All of the above are expressed _**per thousand posts**_ (PTP)
+:::
+## Definition of Award Diversity
+
+For each subreddit, I use a [Hill diversity index](https://en.wikipedia.org/wiki/Diversity_index#Effective_number_of_species_or_Hill_numbers) $^1D = e^H$, with $H$ being Shannon's entropy:
+
+$$
+ H = -\sum_{i = 1}^A p_i \ln(p_i)
+$$
+&ensp; where $A$ is the number of distinct awards, and $p_i$ is the proportion of all awardings regarding award $i$.
+
+$^1D \in [1,A]$. &ensp; If $^1D = A$ then there is a perfect balance among the awards present in a given subreddit.
+
+# Results
+
+## Awarding Levels
+
+```{r}
+awarding_levels <- readRDS("./data/awarding_levels.rds")
+```
+
+
+:::: {.panel-tabset}
+
+### Overview
+
+* After diversification there was a remarkable increase for all awarding measures (<abbr title="Per Thousand Posts">PTP</abbr>)
+* Growth at the dataset level:
+
+:::{#datase-awarding-growth}
+| kind                       | awards given | coins spent | awarded posts |
+|:---------------------------|-------------:|------------:|--------------:|
+| [submissions]{.submission} |        +196% |       +127% |         +114% |
+| [comments]{.comment}       |        +155% |       +115% |         +131% |
+:::
+
+### Plot
+
+```{r}
+awarding_levels_p <- awarding_levels |> 
+  ggplot(aes(
+    x = kind,
+    color = kind
+  )) +
+  geom_point_interactive(aes(
+      y = growth,
+      data_id = id,
+      tooltip = round(growth, 2) * 100
+    ),
+    stat = "sina",
+    alpha = 0.75
+  ) +
+  geom_segment_interactive(
+    data = awarding_levels[,.(median_growth = median(growth)), by = c("measure", "kind")],
+    mapping = aes(
+      x    = as.numeric(kind) - 0.5,
+      xend = as.numeric(kind) + 0.5,
+      y    = median_growth,
+      yend = median_growth,
+      tooltip = paste("median:", format_percent(median_growth))
+    ),
+    size = 1,
+    color = "gray"
+  ) +
+  scale_y_log10(labels = format_percent) +
+  scale_color_manual(values = post_colors) +
+  facet_wrap(~measure) +
+  dark_theme_gray() +
+  theme(
+    legend.position = "none",
+    axis.title.x = element_blank()
+  )
+
+awarding_levels_ig <- girafe(
+    ggobj = awarding_levels_p,
+    width_svg = 7,
+    height_svg = 3,
+    options = list(
+      rescale = TRUE    
+    )
+  ) |> girafe_options(
+    opts_hover(css = "stroke:darkorange;fill:orange;opacity:1;r:3pt;"),
+    opts_toolbar(saveaspng = FALSE)
+  )
+awarding_levels_ig
+```
+
+### Table
+
+```{r}
+awarding_levels[,!c("id")] |>
+  reactable(
+    groupBy = c("measure", "kind"),
+    paginateSubRows = TRUE,
+    columns = list(
+      "kind" = colDef(class = agg_row_css_class_js),
+      "2019H1" = colDef(class = agg_row_css_class_js, aggregate = "median", format = colFormat(digits = 2)),
+      "2020H1" = colDef(class = agg_row_css_class_js, aggregate = "median", format = colFormat(digits = 2)),
+      "growth" = colDef(class = agg_row_css_class_js, aggregate = "median", format = colFormat(prefix = "+", percent = TRUE , digits = 0))
+    )
+  )
+```
+
+
+::::
+
+## Award Diversities
+
+```{r}
+subreddit_diversities <- readRDS("./data/subreddit_diversities.rds")
+```
+
+::: {.panel-tabset}
+
+### Overview
+
+
+* In both datasets submissions had a higher median and spread in award diversity w.r.t. comments
+* Median diversity growth:
+    - [submissions]{.submission}: **+691%**
+    - [comments]{.comment}: **+490%**
+
+### Plot
+
+```{r}
+subreddit_diversities_p <- subreddit_diversities |>
+  ggplot() +
+  geom_point_interactive(aes(
+      x = kind,
+      y = diversity,
+      color = kind,
+      data_id = subreddit_id,
+      tooltip = round(diversity, 2)
+    ),
+    stat = "sina",
+    alpha = 0.75
+  ) +
+  scale_y_log10() +
+  scale_color_manual(values = post_colors) +
+  facet_wrap(~dataset, scales = "free_y") +
+  dark_theme_gray() +
+  theme(
+    legend.position = "none",
+    axis.title.x = element_blank()
+  )
+
+subreddit_diversities_ig <- girafe(
+    ggobj = subreddit_diversities_p,
+    width_svg = 7,
+    height_svg = 3,
+    options = list(
+      rescale = TRUE    
+    )
+  ) |> girafe_options(
+    opts_hover(css = "stroke:darkorange;fill:orange;opacity:1;r:3pt;"),
+    opts_toolbar(saveaspng = FALSE)
+  )
+subreddit_diversities_ig
+```
+
+
+### Table
+
+```{r}
+dcast(subreddit_diversities, name + kind ~ dataset, value.var = "diversity")[
+  , growth := (`2020H1` - `2019H1`) / `2019H1`
+] |> 
+  reactable(
+    groupBy = "kind",
+    paginateSubRows = TRUE,
+    columns = list(
+      "kind" = colDef(class = agg_row_css_class_js),
+      "2019H1" = colDef(class = agg_row_css_class_js, aggregate = "median", format = colFormat(digits = 2)),
+      "2020H1" = colDef(class = agg_row_css_class_js, aggregate = "median", format = colFormat(digits = 2)),
+      "growth" = colDef(class = agg_row_css_class_js, aggregate = "median", format = colFormat(prefix = "+", percent = TRUE , digits = 0))
+    )
+  )
+```
+:::
+
+## Most Common Awards
+
+```{r}
+common_awards <- readRDS("./data/common_awards.rds")
+```
+
+```{r}
+common_awards_p <- common_awards |> 
+  ggplot(aes(name, total, color = award_group, data_id = award_id, tooltip = format_number(total))) +
+  geom_point_interactive(size = 3) +
+  ylab("total awards given") +
+  coord_flip() +
+  scale_y_log10(
+    labels = \(x) paste0(x/1000, "K"),
+  ) +
+  scale_x_discrete(
+    labels = \(l) paste0(l, '    <img src="./imgs//common_awards/', common_awards[order(name)]$award_id, '.png" width="12" />'),
+  ) +
+  scale_color_manual(values = c("gilding" = gilding_color, "non-gilding" = non_gilding_color)) +
+  dark_theme_minimal() +
+  theme(
+    axis.title.y = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor.x = element_blank(),
+    panel.grid.major.y = element_line(color = "grey20", linetype = "dashed"),
+    axis.ticks.x = element_line(),
+    legend.title = element_blank(),
+    axis.text.y = ggtext::element_markdown(color = "white", size = 8.5),
+    axis.text.x = element_text(size = 8),
+    axis.title.x = element_text(size = 8.5),
+    legend.position = "top",
+    legend.box.spacing = unit(0, "pt"),
+    plot.background = element_rect(fill = "black", color = "black")
+  )
+
+common_awards_ig <- girafe(
+  ggobj = common_awards_p,
+  width_svg = 7,
+  height_svg = 4,
+  options = list(
+    rescale = TRUE,
+    opts_toolbar(saveaspng = FALSE)
+  )
+)
+common_awards_ig
+```
+
+
+## Awards Overview
+
+```{r}
+awards_overview <- readRDS("./data/awards_overview.rds")
+awards_overview[, coins_spent := coin_price * total]
+awards_coins_spent_total <- awards_overview[, sum(coins_spent)]
+awards_overview[, coins_spent_prop := coins_spent / awards_coins_spent_total]
+gilding_awards_coins_spent_perc_total <- format_percent(
+  awards_overview[is_gilding == TRUE, sum(coins_spent_prop)]
+)
+gilding_awards_coins_spent_perc <- awards_overview[
+  is_gilding == TRUE,
+  .(award_id, perc_display = paste0(name,"<br><b>", format_percent(coins_spent_prop), "</b>"))
+    ][,setNames(perc_display, award_id)]
+```
+
+
+```{r}
+awards_overview_p <- awards_overview |> 
+  ggplot(
+    aes(
+      x = total,
+      y = coin_price,
+      size = num_subreddits,
+      color = is_gilding,
+      data_id = award_id,
+      tooltip = glue(
+        '<strong>{name}</strong>',
+        '<br>',
+        '<span style="color:gray">price: </span>',
+        '<span style="font-family:monospace">{format_number(coin_price)}</span>',
+        '<br>',
+        '<span style="color:gray">times given: </span>',
+        '<span style="font-family:monospace">{format_number(total)}</span>',
+        '<br>',
+        '<span style="color:gray">coins spent: </span>',
+        '<span style="font-family:monospace">{format_number(coins_spent)}</span>',
+        '<br>',
+        '<span style="color:gray">subreddits: </span>',
+        '<span style="font-family:monospace">{format_number(num_subreddits)}<span style="color:gray">/50</span></span>'
+      )
+    )
+  ) +
+  geom_point_interactive(
+    alpha = 0.3,
+    position = position_jitter(seed = 10,  width = 0, height = 0.05)
+  ) +
+  scale_x_log10(
+    breaks = scales::trans_breaks("log10", \(x) 10^x),
+    labels = scales::trans_format("log10", scales::math_format(10^.x)),
+    oob = scales::squish_infinite
+  ) +
+  scale_y_log10(
+    breaks = scales::trans_breaks("log10", \(x) 10^x),
+    labels = scales::trans_format("log10", scales::math_format(10^.x)),
+    oob = scales::squish_infinite
+  ) +
+  scale_color_manual(
+    values = c(non_gilding_color, gilding_color),
+    labels = c("No", "Yes")
+  ) +
+  labs(
+    x = "total awardings",
+    y = "coin price",
+    color = "gilding",
+    size = "subreddits"
+  ) +
+  dark_theme_gray()
+
+awards_overview_ig <- girafe(
+  ggobj = awards_overview_p,
+  width_svg = 7,
+  height_svg = 4,
+  options = list(
+    rescale = TRUE,
+    opts_toolbar(saveaspng = FALSE)
+  )
+)
+awards_overview_ig
+```
+
+## Total Coins Spent
+
+Gildings represented **`r gilding_awards_coins_spent_perc_total`** of the coins spent in 2020H1
+
+::: {.gildings-row layout-ncol=3}
+
+![`r gilding_awards_coins_spent_perc["gid_2"]`](imgs/gid_2.png)
+
+![`r gilding_awards_coins_spent_perc["gid_3"]`](imgs/gid_3.png)
+
+![`r gilding_awards_coins_spent_perc["gid_1"]`](imgs/gid_1.png)
+
+:::
+
+# Discussion
+
+## The More the Better
+
+::: {.incremental}
+
+* After diversification, Reddit Awards had an average **_one-year growth of +140%_** across all three measures
+    - For comparison, there was a **_four-year increase of 116%_** in gilded comments since 2015 to 2019
+* Award diversity increased but gilding was still dominant
+    - An important share of growth was due to gilding awards
+    - The often ironic _Silver_ was by far the most popular
+
+:::
+
+## Limitations
+
+* Potential subreddit sampling bias
+    - Perhaps less popular subreddits awarded differently
+* Potential bias due to the mechanism recency
+* This study did not establish a causal relationship
+    - Lack of control subreddits due to platform-wise change
+    - There were other changes in the awarding UX (e.g., new selection dialog and order, new ways of displaying awards and awarded content)
+
+## Takeaways
+
+::: {.incremental}
+* Diversification linked to a considerable awarding increase
+* Still, the original hierarchical tokens remained popular
+* Paid appreciation tokens are a noteworthy strategy to engage users and monetize user-generated content
+:::
+
+:::: {.fragment}
+
+> Awarding is an important part of our direct-to-consumer revenue [...]. By giving awards, users not only recognize others but also help Reddit [...].
+
+::: {.quote-author}
+Reddit admin [u/venkman01](https://redd.it/hmdwxs)
+:::
+
+::::
+
+::: footer
+<https://github.com/amauryt/award_diversification_slides>
+:::

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="272 18 204 416" width="204" height="416">
+  <defs>
+    <filter id="Shadow" filterUnits="userSpaceOnUse" x="251.6" y="-23.6">
+      <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="1.308"/>
+      <feOffset in="blur" result="offset" dx="0" dy="2"/>
+      <feFlood flood-color="black" flood-opacity=".5" result="flood"/>
+      <feComposite in="flood" in2="offset" operator="in"/>
+    </filter>
+  </defs>
+  <g id="Canvas_1" stroke-dasharray="none" fill-opacity="1" fill="none" stroke="none" stroke-opacity="1">
+    <title>Canvas 1</title>
+    <rect fill="black" x="272" y="18" width="204" height="416"/>
+    <g id="Canvas_1_Layer_1">
+      <title>Layer 1</title>
+      <g id="Line_4_shadow" filter="url(#Shadow)">
+        <line x1="298.5" y1="68.50001" x2="298.5" y2="195.90164" stroke="#a5a5a5" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Line_20_shadow" filter="url(#Shadow)">
+        <line x1="354.4" y1="217.4" x2="354.4" y2="372.0276" stroke="#a5a5a5" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Line_21_shadow" filter="url(#Shadow)">
+        <line x1="332.06258" y1="95.30196" x2="298.5" y2="95.90164" stroke="#a5a5a5" stroke-linecap="butt" stroke-linejoin="round" stroke-dasharray="4.0,4.0" stroke-width="2"/>
+      </g>
+      <g id="Line_22_shadow" filter="url(#Shadow)">
+        <line x1="332.06008" y1="144.18025" x2="298.5" y2="143.85246" stroke="#a5a5a5" stroke-linecap="butt" stroke-linejoin="round" stroke-dasharray="4.0,4.0" stroke-width="2"/>
+      </g>
+      <g id="Line_23_shadow" filter="url(#Shadow)">
+        <line x1="332.05905" y1="194.8741" x2="297.6" y2="194.83443" stroke="#a5a5a5" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Line_25_shadow" filter="url(#Shadow)">
+        <path d="M 407.0819 258.5 L 407.0819 269.5 L 407.04094 282.08197 L 423.89995 281.7 L 434.89995 281.7" stroke="#a5a5a5" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Line_26_shadow" filter="url(#Shadow)">
+        <line x1="387.0886" y1="239.01798" x2="354.4" y2="239.86486" stroke="#a5a5a5" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Line_27_shadow" filter="url(#Shadow)">
+        <line x1="387.09" y1="326.77026" x2="354.4" y2="327.7027" stroke="#a5a5a5" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Line_28_shadow" filter="url(#Shadow)">
+        <line x1="387.08257" y1="371.76233" x2="354.4" y2="372.0276" stroke="#a5a5a5" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Line_49_shadow" filter="url(#Shadow)">
+        <path d="M 407.0819 391.6 L 407.0819 402.6 L 407.04094 412.98737 L 423.89995 412.6054 L 434.89995 412.6054" stroke="#a5a5a5" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_15">
+        <circle cx="354.55905" cy="194.9" r="22.5000359527927" fill="#8c9fcd" fill-opacity=".5"/>
+        <circle cx="354.55905" cy="194.9" r="22.5000359527927" stroke="#8c9fcd" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_13">
+        <circle cx="354.559" cy="94.9" r="22.5000359527927" fill="#8c9fcd" fill-opacity=".5"/>
+        <circle cx="354.559" cy="94.9" r="22.5000359527927" stroke="#8c9fcd" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_4">
+        <line x1="298.5" y1="68.50001" x2="298.5" y2="195.90164" stroke="#a5a5a5" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_2">
+        <circle cx="298.5" cy="44.5" r="25.0000399475474" fill="#e6c491" fill-opacity=".5"/>
+        <circle cx="298.5" cy="44.5" r="25.0000399475474" stroke="#e7c591" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(283.5 35)" fill="white">
+          <tspan font-family="Courier" font-weight="bold" font-size="16" fill="white" x="5.3984375" y="15">r/</tspan>
+        </text>
+      </g>
+      <g id="Graphic_3">
+        <circle cx="354.559" cy="144.4" r="22.5000359527927" fill="#8c9fcd" fill-opacity=".5"/>
+        <circle cx="354.559" cy="144.4" r="22.5000359527927" stroke="#8c9fcd" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Group_5">
+        <title>Group</title>
+        <g id="Graphic_7">
+          <path d="M 351.923 150.7755 L 350.991 151.7075 L 350.99102 151.7075 C 349.23365 153.46487 346.3844 153.46487 344.62702 151.7075 C 342.86965 149.95013 342.86965 147.10087 344.627 145.3435 L 349.4 140.5695 L 349.4 140.5695 C 351.1554 138.81015 354.00463 138.80693 355.764 140.5623 C 357.33283 142.12762 357.52845 144.60214 356.22502 146.3945" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </g>
+        <g id="Graphic_6">
+          <path d="M 357.377 137.8425 L 358.127 137.0925 L 358.127 137.0925 C 359.8844 135.33513 362.73365 135.33513 364.491 137.0925 C 366.2484 138.84987 366.2484 141.69913 364.491 143.4565 L 359.718 148.2295 L 359.718 148.2295 C 357.9621 149.9883 355.11285 149.99061 353.35406 148.23468 C 351.7861 146.66926 351.5909 144.19543 352.894 142.4035" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </g>
+      </g>
+      <g id="Group_8">
+        <g id="Graphic_12">
+          <line x1="347.80905" y1="90.38" x2="353.80905" y2="90.38" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </g>
+        <g id="Graphic_11">
+          <line x1="347.80905" y1="94.88" x2="355.30905" y2="94.88" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </g>
+        <g id="Graphic_10">
+          <line x1="347.80905" y1="99.38" x2="361.30905" y2="99.38" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </g>
+        <g id="Graphic_9">
+          <path d="M 344.80905 85.923 L 344.80905 85.923 C 343.98062 85.923 343.30905 86.59457 343.30905 87.423 L 343.30905 102.377 L 343.30905 102.377 C 343.30905 103.20543 343.98062 103.877 344.80905 103.877 L 364.30905 103.877 L 364.30905 103.877 C 365.13748 103.877 365.80905 103.20543 365.80905 102.377 L 365.80905 90.377 L 365.80905 90.37715 C 365.80905 89.98595 365.6562 89.61023 365.38315 89.33011 L 362.50005 86.375 L 362.50005 86.375 C 362.2176 86.08576 361.83034 85.92278 361.42605 85.923 Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </g>
+      </g>
+      <g id="Graphic_14">
+        <path d="M 365.8091 192.90088 L 354.8321 203.87888 L 354.8321 203.87888 C 352.19604 206.51494 347.92215 206.51494 345.2861 203.87888 C 342.65003 201.24283 342.65003 196.96894 345.2861 194.33288 L 354.3021 185.31788 L 354.3021 185.31788 C 356.02864 183.53025 358.87746 183.48073 360.6651 185.20729 C 362.45272 186.93384 362.50224 189.78266 360.7757 191.57029 C 360.73947 191.60779 360.7026 191.64466 360.6651 191.68087 L 351.6501 200.70088 L 351.6501 200.70088 C 350.7564 201.5643 349.332 201.53977 348.46858 200.6461 C 347.6263 199.7743 347.6261 198.39194 348.4681 197.51988 L 357.4841 188.50088" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_16">
+        <circle cx="407.0819" cy="238.5" r="20.0000319580379" fill="#5fc3a5" fill-opacity=".5"/>
+        <circle cx="407.0819" cy="238.5" r="20.0000319580379" stroke="#5fc3a5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_17">
+        <circle cx="407.0819" cy="326.2" r="20.0000319580379" fill="#5fc3a5" fill-opacity=".5"/>
+        <circle cx="407.0819" cy="326.2" r="20.0000319580379" stroke="#5fc3a5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_19">
+        <circle cx="454.89996" cy="281.7" r="20.0000319580379" fill="#5fc3a5" fill-opacity=".5"/>
+        <circle cx="454.89996" cy="281.7" r="20.0000319580379" stroke="#5fc3a5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_20">
+        <line x1="354.4" y1="217.4" x2="354.4" y2="372.0276" stroke="#a5a5a5" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Line_21">
+        <line x1="332.06258" y1="95.30196" x2="298.5" y2="95.90164" stroke="#a5a5a5" stroke-linecap="butt" stroke-linejoin="round" stroke-dasharray="4.0,4.0" stroke-width="2"/>
+      </g>
+      <g id="Line_22">
+        <line x1="332.06008" y1="144.18025" x2="298.5" y2="143.85246" stroke="#a5a5a5" stroke-linecap="butt" stroke-linejoin="round" stroke-dasharray="4.0,4.0" stroke-width="2"/>
+      </g>
+      <g id="Line_23">
+        <line x1="332.05905" y1="194.8741" x2="297.6" y2="194.83443" stroke="#a5a5a5" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_24">
+        <circle cx="407.0819" cy="371.6" r="20.0000319580379" fill="#5fc3a5" fill-opacity=".5"/>
+        <circle cx="407.0819" cy="371.6" r="20.0000319580379" stroke="#5fc3a5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_25">
+        <path d="M 407.0819 258.5 L 407.0819 269.5 L 407.04094 282.08197 L 423.89995 281.7 L 434.89995 281.7" stroke="#a5a5a5" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Line_26">
+        <line x1="387.0886" y1="239.01798" x2="354.4" y2="239.86486" stroke="#a5a5a5" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Line_27">
+        <line x1="387.09" y1="326.77026" x2="354.4" y2="327.7027" stroke="#a5a5a5" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Line_28">
+        <line x1="387.08257" y1="371.76233" x2="354.4" y2="372.0276" stroke="#a5a5a5" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Group_29">
+        <g id="Graphic_32">
+          <path d="M 414.5574 243.67532 L 406.5069 243.67532 L 401.9066 247.12553 L 401.9066 243.67532 L 399.60647 243.67532 L 399.60647 243.67532 C 398.9713 243.67532 398.4564 243.1604 398.4564 242.52525 L 398.4564 231.02454 L 398.4564 231.02454 C 398.4564 230.38938 398.9713 229.87447 399.60647 229.87447 L 414.5574 229.87447 L 414.5574 229.87447 C 415.19255 229.87447 415.70745 230.38938 415.70745 231.02454 L 415.70745 242.52525 L 415.70745 242.52525 C 415.70745 243.1604 415.19255 243.67532 414.5574 243.67532 L 414.5574 243.67532 Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        </g>
+        <g id="Graphic_31">
+          <line x1="401.9066" y1="235.0498" x2="412.25724" y2="235.0498" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        </g>
+        <g id="Graphic_30">
+          <line x1="401.9066" y1="238.5" x2="409.9571" y2="238.5" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        </g>
+      </g>
+      <g id="Group_33">
+        <g id="Graphic_36">
+          <path d="M 462.3754 286.8753 L 454.3249 286.8753 L 449.72464 290.32553 L 449.72464 286.8753 L 447.4245 286.8753 L 447.4245 286.8753 C 446.78933 286.8753 446.27443 286.3604 446.27443 285.72525 L 446.27443 274.22454 L 446.27443 274.22454 C 446.27443 273.58938 446.78933 273.07447 447.4245 273.07447 L 462.3754 273.07447 L 462.3754 273.07447 C 463.0106 273.07447 463.5255 273.58938 463.5255 274.22454 L 463.5255 285.72525 L 463.5255 285.72525 C 463.5255 286.3604 463.0106 286.8753 462.3754 286.8753 L 462.3754 286.8753 Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        </g>
+        <g id="Graphic_35">
+          <line x1="449.72464" y1="278.2498" x2="460.0753" y2="278.2498" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        </g>
+        <g id="Graphic_34">
+          <line x1="449.72464" y1="281.7" x2="457.77513" y2="281.7" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        </g>
+      </g>
+      <g id="Group_37">
+        <g id="Graphic_40">
+          <path d="M 414.5574 331.37532 L 406.5069 331.37532 L 401.9066 334.82553 L 401.9066 331.37532 L 399.60647 331.37532 L 399.60647 331.37532 C 398.9713 331.37532 398.4564 330.8604 398.4564 330.22525 L 398.4564 318.72455 L 398.4564 318.72455 C 398.4564 318.0894 398.9713 317.57448 399.60647 317.57448 L 414.5574 317.57448 L 414.5574 317.57448 C 415.19255 317.57448 415.70745 318.0894 415.70745 318.72455 L 415.70745 330.22525 L 415.70745 330.22525 C 415.70745 330.8604 415.19255 331.37532 414.5574 331.37532 L 414.5574 331.37532 Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        </g>
+        <g id="Graphic_39">
+          <line x1="401.9066" y1="322.7498" x2="412.25724" y2="322.7498" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        </g>
+        <g id="Graphic_38">
+          <line x1="401.9066" y1="326.2" x2="409.9571" y2="326.2" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        </g>
+      </g>
+      <g id="Group_41">
+        <g id="Graphic_44">
+          <path d="M 414.5574 376.7753 L 406.5069 376.7753 L 401.9066 380.22553 L 401.9066 376.7753 L 399.60647 376.7753 L 399.60647 376.7753 C 398.9713 376.7753 398.4564 376.2604 398.4564 375.62525 L 398.4564 364.12455 L 398.4564 364.12455 C 398.4564 363.4894 398.9713 362.97447 399.60647 362.97447 L 414.5574 362.97447 L 414.5574 362.97447 C 415.19255 362.97447 415.70745 363.4894 415.70745 364.12455 L 415.70745 375.62525 L 415.70745 375.62525 C 415.70745 376.2604 415.19255 376.7753 414.5574 376.7753 L 414.5574 376.7753 Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        </g>
+        <g id="Graphic_43">
+          <line x1="401.9066" y1="368.1498" x2="412.25724" y2="368.1498" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        </g>
+        <g id="Graphic_42">
+          <line x1="401.9066" y1="371.6" x2="409.9571" y2="371.6" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        </g>
+      </g>
+      <g id="Graphic_50">
+        <circle cx="454.89996" cy="412.6054" r="20.0000319580379" fill="#5fc3a5" fill-opacity=".5"/>
+        <circle cx="454.89996" cy="412.6054" r="20.0000319580379" stroke="#5fc3a5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_49">
+        <path d="M 407.0819 391.6 L 407.0819 402.6 L 407.04094 412.98737 L 423.89995 412.6054 L 434.89995 412.6054" stroke="#a5a5a5" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Group_45">
+        <g id="Graphic_48">
+          <path d="M 462.3754 417.7807 L 454.3249 417.7807 L 449.72464 421.23093 L 449.72464 417.7807 L 447.4245 417.7807 L 447.4245 417.7807 C 446.78933 417.7807 446.27443 417.2658 446.27443 416.63065 L 446.27443 405.12994 L 446.27443 405.12994 C 446.27443 404.49478 446.78933 403.97987 447.4245 403.97987 L 462.3754 403.97987 L 462.3754 403.97987 C 463.0106 403.97987 463.5255 404.49478 463.5255 405.12994 L 463.5255 416.63064 L 463.5255 416.63065 C 463.5255 417.2658 463.0106 417.7807 462.3754 417.7807 L 462.3754 417.7807 Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        </g>
+        <g id="Graphic_47">
+          <line x1="449.72464" y1="409.1552" x2="460.0753" y2="409.1552" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        </g>
+        <g id="Graphic_46">
+          <line x1="449.72464" y1="412.6054" x2="457.77513" y2="412.6054" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,112 @@
+/*-- scss:defaults --*/
+
+$body-bg: black;
+
+/*-- scss:rules --*/
+
+#title-slide {
+  h1 {
+    font-size: 1.75em;
+  }
+  .author {
+    margin-top: 1em;
+    font-weight: bold;
+  }
+  .institute {
+    color: #ddd;
+    padding-bottom: 1em;
+    border-bottom: 2px solid #333;
+  }
+  .date {
+    margin-top: 1.5em;
+    font-size: 0.65em;
+    font-family: Monospace;
+    color: #666;
+    
+    &::before {
+     content:url('/imgs/nordichi2022.png');
+     position: relative;
+     margin: auto;
+     display: block;
+    }
+  }
+}
+
+#research-questions {
+  ol {
+    margin-left: 3em;
+    li {
+      margin-top: 1.5em;
+      font-size: 1.3em;
+    }
+  }
+}
+
+#datase-awarding-growth {
+  table th {
+    font-size: 0.75em;
+    font-weight: bold;
+    color: silver;
+  }
+}
+
+figcaption {
+  text-align: center;
+}
+
+
+.gildings-row {
+  margin-top: 1.25em;
+  
+  .quarto-layout-cell img {
+    max-width: 66%;
+  }
+  figcaption {
+    font-size: 1em;
+  }
+}
+
+.aside-footnotes {
+  color: silver;
+  font-size: 0.85em;
+}
+
+.panel-tabset .panel-tabset-tabby > li {
+  font-size: 0.65em;
+}
+
+.quote-author {
+  text-align: right;
+  font-size: 0.85em;
+  padding-right: 2em;
+}
+
+.reddit-content-structure {
+  padding-top: 0.15em;
+}
+
+.other-appreciation-tokens {
+  margin: 0.75em auto;
+}
+
+.subreddit {
+  color: #e5c494;
+  font-weight: bold;
+}
+
+.submission {
+  color: #8da0cb;
+  font-weight: bold;
+}
+
+.comment {
+  color: #66c2a5;
+  font-weight: bold;
+}
+
+.central-statement {
+  margin: 2em 1.5em;
+  text-align: center;
+  font-size: 1.5em;
+}
+
