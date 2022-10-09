@@ -22,13 +22,6 @@ $body-bg: black;
     font-size: 0.65em;
     font-family: Monospace;
     color: #666;
-    
-    &::before {
-     content:url('/imgs/nordichi2022.png');
-     position: relative;
-     margin: auto;
-     display: block;
-    }
   }
 }
 

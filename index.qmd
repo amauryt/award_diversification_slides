@@ -6,6 +6,7 @@ date: "11 October 2022"
 format: 
   revealjs:
     theme: [dark, style/custom.scss]
+    css: style/nordichi_logo.css
 ---
 
 # Introduction
